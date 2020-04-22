@@ -16,6 +16,13 @@ The docker container does 5 things:
 - writes out a postgres credential file
 - Executes pg_dump, outputting to a file on the FSX Volume (with timestamp)
 
+## Install
+```bash
+git clone https://github.com/MiltyBrizan/rdspgdumpimage.git
+python -m venv .env
+source .env/bin/activate
+pip3 install -r requirements.txt
+```
 
 if we haven't already, we'll need to create the secrets for our image to lookup:
 
