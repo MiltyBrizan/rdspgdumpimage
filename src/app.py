@@ -120,8 +120,7 @@ def pgdump_to_fsx(target_database, fsx):
     pgdump_filename="pgdump_{}.sql".format(timestamp)
     complete_pgdump_path = fsx["mount_point"] + pgdump_filename
     os.environ['PGPASSWORD'] = str(target_database["password"])
-    subprocess.run(["pg_dump", "-h", "{}".format(target_database["hostname"]), "-U", "{}".format(target_database["username"]), "--file={}".format(complete_pgdump_path)])
-
+    subprocess.run(["pg_dump", "-h", "{}".format(target_database["hostname"]), "-U", "{}".format(target_database["username"]), "--file={}".format(complete_pgdump_path), "{}".format(target_database["database"])])
 
 def app_loop():
     database_secret_id = os.getenv("DBSECRET")
